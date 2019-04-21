@@ -1,0 +1,12 @@
+DECLARE @a FLOAT;
+DECLARE @b FLOAT;
+DECLARE @c FLOAT;
+DECLARE @d FLOAT;
+SELECT 
+  @a = MIN(LAT_N)
+  , @b = MIN(LONG_W)
+  , @c = MAX(LAT_N)
+  , @d = MAX(LONG_W)
+FROM STATION;
+SELECT
+  CAST((ABS(@a - @c) + ABS(@b - @d)) AS DECIMAL(10, 4));
